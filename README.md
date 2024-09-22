@@ -1,4 +1,4 @@
-Programa que eu escrevi em Java para controle de gastos e ganhos financeiros, onde aparece um ID, o valor, data e uma descrição da escolha do usuário para cada registro, separado entre os ganhos e os gastos.
+Programa que eu escrevi em Java para controle de gastos e ganhos financeiros, onde aparece um ID, o valor, a data e uma descrição da escolha do usuário para cada registro, separado entre os ganhos e os gastos.
 
 Lista de comandos válidos:
 - ajuda -> Mostra este menu de comandos.
