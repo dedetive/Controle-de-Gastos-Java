@@ -39,8 +39,8 @@ public class ControleDeGastos {
 				}
 				else break;
 			}
-		} catch (FileNotFoundException e) {
-			System.out.println("Arquivo 'ganhos.txt' não encontrado");
+		} catch (FileNotFoundException _) {
+			;
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -51,8 +51,8 @@ public class ControleDeGastos {
 					ID = (int)(Math.random()*8999999);
 				} else break;
 			}
-		} catch (FileNotFoundException e) {
-			System.out.println("Arquivo 'gastos.txt' não encontrado");
+		} catch (FileNotFoundException _) {
+			;
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} return ID;
