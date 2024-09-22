@@ -7,16 +7,20 @@ public class ControleDeGastos {
     static boolean funcionando = true;
 	static int ID;
 
-	public static String lista(String caminhoDoArquivo) throws IOException {
+	public static String lista(String caminhoDoArquivo) {
 		StringBuilder lista;
+		lista = new StringBuilder();
 		try (BufferedReader reader = new BufferedReader(new FileReader(caminhoDoArquivo))) {
-			lista = new StringBuilder();
 			var linha = reader.readLine();
 			while ((linha = reader.readLine()) != null) {
 				{
 					lista.append(linha).append("\n");
 				}
 			}
+		} catch (FileNotFoundException e) {
+			System.out.println("Arquivo " + caminhoDoArquivo + " não encontrado.");
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		}
 		return lista.toString();
 	}
@@ -24,7 +28,7 @@ public class ControleDeGastos {
 
 
 
-	public static int aleatorizarID () throws IOException {
+	public static int aleatorizarID () {
 		ID = (int)(Math.random()*8999999);
 		ID += 1000000;
 		try (BufferedReader reader = new BufferedReader(new FileReader("ganhos.txt"))) {
@@ -35,6 +39,10 @@ public class ControleDeGastos {
 				}
 				else break;
 			}
+		} catch (FileNotFoundException e) {
+			System.out.println("Arquivo 'ganhos.txt' não encontrado");
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		}
 		try (BufferedReader reader = new BufferedReader(new FileReader("gastos.txt"))) {
 			String line;
@@ -43,6 +51,10 @@ public class ControleDeGastos {
 					ID = (int)(Math.random()*8999999);
 				} else break;
 			}
+		} catch (FileNotFoundException e) {
+			System.out.println("Arquivo 'gastos.txt' não encontrado");
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		} return ID;
 	}
 
